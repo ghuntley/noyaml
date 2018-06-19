@@ -4,7 +4,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
 	<link rel="stylesheet" data-name="vs/editor/editor.main" href="https://microsoft.github.io/monaco-editor/node_modules/monaco-editor/min/vs/editor/editor.main.css">
-	<title>Jesus, that's alot of YAML</title> 
+	<title>That's alot of YAML</title> 
 </head>
 <body style="height: 90%; margin: 16px">
 
@@ -26,9 +26,21 @@
 			'\t\t\tTo:',
 			'\t\t\t\tWrite:',
 			'\t\t\t\t\t- YAML',
+			'\n',
+			'# YAML features include:',
+			'#',
+			'# - 100% test coverage, compiles just fine, with no errors or warnings, always shippable',
+			'# - no enforced error handling during development because runtime "panic at the disco" in production is dope',
+			'# - stack traces with line numbers are overrated, "something broke" is way better',
+			'# - unlike json, YAML supports comments',
+			'# - marginally better than windows.ini',
+			'#',
+			'# "We replaced 1,000 lines with 10 structs and people started contributing again"',
+			'# 👉 https://tinyurl.com/lessons-in-over-engineering 👈',
+
 		].join('\n'),
 		language: 'yaml',
-		fontSize: 36,
+		fontSize: 18,
 		codeLens: false,
 		colorDecorators: false,
 		scrollBeyondLastLine: false,
