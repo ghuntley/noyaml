@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html style="height: 96%; margin: 16px">
+<html style="height: 100%; margin: 0;">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+	<meta name="viewport" content="width=device-width" />
 	<link rel="stylesheet" data-name="vs/editor/editor.main" href="https://microsoft.github.io/monaco-editor/node_modules/monaco-editor/min/vs/editor/editor.main.css">
 	<title>🚨🚨 That's alot of YAML 🚨🚨</title> 
 </head>
-<body style="height: 96%; margin: 16px">
+<body style="height: calc(100% - 75px); margin: 35px 0 0 0;">
 
-<div id="container" style="min-height: 100%"></div>
+<div id="container" style="height: 100%"></div>
 
 <script>var require = { paths: { 'vs': 'https://microsoft.github.io/monaco-editor/node_modules/monaco-editor/min/vs' } };</script>
 <script src="https://microsoft.github.io/monaco-editor/node_modules/monaco-editor/min/vs/loader.js"></script>
@@ -65,7 +66,8 @@
 		scrollBeyondLastLine: false,
 		minimap: {
 			enabled: false
-		}
+		},
+		automaticLayout: true
 	});
 </script>
 
