@@ -6,10 +6,70 @@
 	<meta name="viewport" content="width=device-width" />
 	<link rel="stylesheet" data-name="vs/editor/editor.main" href="https://microsoft.github.io/monaco-editor/node_modules/monaco-editor/min/vs/editor/editor.main.css">
 	<title>🚨🚨 That's alot of YAML 🚨🚨</title> 
+	<style>
+		.nojs {
+			font-family: monospace;
+			white-space: pre;
+			padding: 0 2em;
+		}
+	</style>
 </head>
 <body style="height: calc(100% - 75px); margin: 35px 0 0 0;">
 
-<div id="container" style="height: 100%"></div>
+<div id="container" style="height: 100%" class="nojs">
+No:
+	Body:
+		Wants:
+			To:
+				Write:
+					- YAML
+
+
+# 🤔 Why YAML is the right technology for you 🤔
+#
+# - 100% test coverage, always compiles just fine with no errors or warnings, always shippable
+# - no enforced error handling during development because runtime "panic at the disco" in production is dope
+# - "something broke" is way better than stack traces with line numbers
+# - you need to burn hours as part of setting up a new CI pipeline
+# - safe choice with unquestionable industry adoption, "used by kubernetes"
+# - is marginally better than windows.ini
+# - unlike json, YAML supports comments
+# - you need a super safe way to "execute this code"
+
+# 🍿 wait a sec, did you say "executable yaml"?? 🍿
+# - https://ruby-doc.org/stdlib-2.4.0/libdoc/yaml/rdoc/YAML.html#module-YAML-label-Security
+# - https://www.php.net/manual/en/function.yaml-parse.php#refsect1-function.yaml-parse-notes
+# - https://lgtm.com/blog/swagger_snakeyaml_CVE-2017-1000207_CVE-2017-1000208
+# - https://github.com/yaml/pyyaml/wiki/PyYAML-yaml.load(input)-Deprecation
+
+# 🚨 Anyone who uses YAML long enough will eventually get burned when attempting to abbreviate Norway 🚨
+# `NO` is parsed as a boolean type, which with the YAML 1.1 spec, there are 22 options to write "true" or "false."
+# You have to wrap "NO" in quotes to get the expected result.
+NI: Nicaragua
+NL: Netherlands
+NO: Norway # 💣!
+
+# 📢 Mandatory reading 📢
+#
+# "Today we’re going to look at some general problems with the YAML format"
+# 👉 https://arp242.net/weblog/yaml_probably_not_so_great_after_all.html 👈
+#
+# "We replaced 1,000 lines of YAML with 10 structs and people started contributing again"
+# 👉 https://tinyurl.com/lessons-in-over-engineering 👈
+#
+# "What if you used the same language and tools you use to define your app to define your infrastructure?"
+# 👉 https://twitter.com/ellism/status/1008728148131733504 👈
+#
+# "A YAML file is almost always still 'valid' even if it is trunca"
+# 👉 https://twitter.com/colmmacc/status/1057316977457324032 👈
+#
+# "the bug was that the YAML parser ignored the negative signs ... so negative GPS coordinates became positive ones"
+# 👉 https://twitter.com/colmmacc/status/1063470541464461312 👈
+#
+
+# Made with 💖 by https://twitter.com/geoffreyhuntley
+# Improvements welcome, mash the ↗️ Octocat ↗️ and share how YAML makes your life better.
+</div>
 
 <script>var require = { paths: { 'vs': 'https://microsoft.github.io/monaco-editor/node_modules/monaco-editor/min/vs' } };</script>
 <script src="https://microsoft.github.io/monaco-editor/node_modules/monaco-editor/min/vs/loader.js"></script>
@@ -19,70 +79,30 @@
 <a href="https://github.com/ghuntley/noyaml" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#fff; color:#151513; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
 <script>
-	var editor = monaco.editor.create(document.getElementById('container'), {
-		value: [
-			'No:',
-			'\tBody:',
-			'\t\tWants:',
-			'\t\t\tTo:',
-			'\t\t\t\tWrite:',
-			'\t\t\t\t\t- YAML',
-			'\n',
-			'# 🤔 Why YAML is the right technology for you 🤔',
-			'#',
-			'# - 100% test coverage, always compiles just fine with no errors or warnings, always shippable',
-			'# - no enforced error handling during development because runtime "panic at the disco" in production is dope',
-			'# - "something broke" is way better than stack traces with line numbers',
-			'# - you need to burn hours as part of setting up a new CI pipeline',
-			'# - safe choice with unquestionable industry adoption, "used by kubernetes"',
-			'# - is marginally better than windows.ini',
-			'# - you need to "execute this code",
-			'# - unlike json, YAML supports comments',
-			'\n',
- 		        '# 🚨 Anyone who uses YAML long enough will eventually get burned when attempting to abbreviate Norway 🚨',
-		        '# `NO` is parsed as a boolean type, which with the YAML 1.1 spec, there are 22 options to write "true" or "false."',
-		        '# You have to wrap "NO" in quotes to get the expected result.',
-		        'NI: Nicaragua',
-		        'NL: Netherlands',
-		        'NO: Norway # 💣!',
-			'\n',
-			'# 📢 Mandatory reading 📢',
-			'#',
-			'# "Today we\’re going to look at some general problems with the YAML format"',
-			'# 👉 https://arp242.net/weblog/yaml_probably_not_so_great_after_all.html 👈',
-			'#',
-			'# "We replaced 1,000 lines of YAML with 10 structs and people started contributing again"',
-			'# 👉 https://tinyurl.com/lessons-in-over-engineering 👈',
-			'#',
-			'# "What if you used the same language and tools you use to define your app to define your infrastructure?"',
-			'# 👉 https://twitter.com/ellism/status/1008728148131733504 👈',
-			'#',
-			'# "A YAML file is almost always still \'valid\' even if it is trunca"',
-			'# 👉 https://twitter.com/colmmacc/status/1057316977457324032 👈',
-			'#',
-			'# "the bug was that the YAML parser ignored the negative signs ... so negative GPS coordinates became positive ones"',
-			'# 👉 https://twitter.com/colmmacc/status/1063470541464461312 👈',
-			'#',
-			'# wait a sec, did you say "executable yaml??": 🍿"',
-			'# - https://ruby-doc.org/stdlib-2.4.0/libdoc/yaml/rdoc/YAML.html#module-YAML-label-Security',
-			'# - https://www.php.net/manual/en/function.yaml-parse.php#refsect1-function.yaml-parse-notes',
-			'# - https://lgtm.com/blog/swagger_snakeyaml_CVE-2017-1000207_CVE-2017-1000208',
-			'# - https://github.com/yaml/pyyaml/wiki/PyYAML-yaml.load(input)-Deprecation',
-			'# 
-			'\n',
-			'# Made with 💖 by https://twitter.com/geoffreyhuntley',
-			'# Improvements welcome, mash the ↗️ Octocat ↗️ and share how YAML makes your life better.'
-		].join('\n'),
-		language: 'yaml',
-		fontSize: 13,
-		codeLens: false,
-		colorDecorators: false,
-		scrollBeyondLastLine: false,
-		minimap: {
-			enabled: false
-		},
-		automaticLayout: true
-	});
+	(function () {
+		// Exit early if the libraries have not loaded
+		if (!window.monaco)
+			return;
+
+		var container = document.getElementById('container');
+		var content = container.textContent.trim(); // Trim off the leading and trailing newline
+		// Clear the fallback content and styling
+		container.innerHTML = '';
+		container.className = '';
+
+		monaco.editor.create(container, {
+			value: content,
+			language: 'yaml',
+			fontSize: 13,
+			codeLens: false,
+			colorDecorators: false,
+			scrollBeyondLastLine: false,
+			minimap: {
+				enabled: false
+			},
+			automaticLayout: true
+		});
+	}());
 </script>
 
 </body>
