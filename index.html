@@ -34,7 +34,13 @@ No:
 # - safe choice with unquestionable industry adoption, "used by kubernetes"
 # - is marginally better than windows.ini
 # - unlike json, YAML supports comments
+# - you need a super safe way to "execute this code"
 
+# 🍿 wait a sec, did you say "executable yaml"?? 🍿
+# - https://ruby-doc.org/stdlib-2.4.0/libdoc/yaml/rdoc/YAML.html#module-YAML-label-Security
+# - https://www.php.net/manual/en/function.yaml-parse.php#refsect1-function.yaml-parse-notes
+# - https://lgtm.com/blog/swagger_snakeyaml_CVE-2017-1000207_CVE-2017-1000208
+# - https://github.com/yaml/pyyaml/wiki/PyYAML-yaml.load(input)-Deprecation
 
 # 🚨 Anyone who uses YAML long enough will eventually get burned when attempting to abbreviate Norway 🚨
 # `NO` is parsed as a boolean type, which with the YAML 1.1 spec, there are 22 options to write "true" or "false."
@@ -42,7 +48,6 @@ No:
 NI: Nicaragua
 NL: Netherlands
 NO: Norway # 💣!
-
 
 # 📢 Mandatory reading 📢
 #
@@ -60,7 +65,7 @@ NO: Norway # 💣!
 #
 # "the bug was that the YAML parser ignored the negative signs ... so negative GPS coordinates became positive ones"
 # 👉 https://twitter.com/colmmacc/status/1063470541464461312 👈
-
+#
 
 # Made with 💖 by https://twitter.com/geoffreyhuntley
 # Improvements welcome, mash the ↗️ Octocat ↗️ and share how YAML makes your life better.
