@@ -84,6 +84,30 @@ WHERE EXISTS:
       - price
       - 50	
 
+# 🤡 Doing the same thing with different CI providers 🤡
+
+# Azure devops
+jobs:
+  - job: job1
+    steps:
+      - script: chmod +x ./script.sh
+      - script: ./script.sh
+
+# CircleCI
+jobs:
+  job1:
+    steps:
+      - checkout
+      - run: "execute-script-for-job1"
+
+# Some future CI system, probably
+jobs:
+  - steps: job1
+    - step1:
+	  - script: chmod +x ./script.sh
+	- step2:
+	  - run: "execute-script-for-job1-inside-step2"
+
 # 📢 Mandatory reading 📢
 #
 # "Today we’re going to look at some general problems with the YAML format"
