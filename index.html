@@ -118,6 +118,13 @@ jobs:
 	- step2:
 	  - run: "execute-script-for-job1-inside-step2"
 
+# If you're building a YAML file for Cloudformation for a DashboardBody for Cloudwatch
+# and theres a SEARCH function? you need to escape the already-escaped and close the
+# whole JSON with double-quotes:
+"{
+
+\"search(' var=\\\"blue\\\" .
+	
 # 💊 Mega twitter thread of pain
 
 # 👉 https://twitter.com/brunoborges/status/1098472238469111808	👈
