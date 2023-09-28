@@ -93,6 +93,7 @@ WHERE EXISTS:
       - 50	
 
 # Speaking of CI, did you know that 8-character SHAs could be all numbers?
+# If the system that parses `my.flaky_version` is typed, it will happily explode 2% of the time.
 my:
 	# this will be a string ~98% of the time
 	flaky_version: ${GIT_SHORT_SHA}
