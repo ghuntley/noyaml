@@ -92,6 +92,14 @@ WHERE EXISTS:
       - price
       - 50	
 
+# Speaking of CI, did you know that 8-character SHAs could be all numbers?
+# If the system that parses `my.flaky_version` is typed, it will happily explode 2% of the time.
+my:
+	# this will be a string ~98% of the time
+	flaky_version: ${GIT_SHORT_SHA}
+	# this will be a string ~100% of the time
+	string_version: "${GIT_SHORT_SHA}"
+
 # him: "Look, I bought a box of DevOps"
 # her: "You can't just buy a box of DevOps"
 # 🤣 https://twitter.com/mike_kaufmann/status/1454712996933025794
