@@ -66,7 +66,7 @@ timeOfDay:
   whatYouShouldHaveWritten: !!str 04:30
 
 # YAML is the super best way to encode Octal (tm) and learning the hard way that Kubernetes uses YAML 1.1
-# is a DevOps rite of passage. Below YAML 1.2 a large integer is automatically converted to octal.
+# is a DevOps rite of passage. Below YAML 1.2 a large integer is automatically converted to octal.[3]
 - YAML 1.1 uses `0666` notation.
 - YAML 1.2 uses `0o666` notation
 
@@ -192,6 +192,7 @@ jobs:
 # 📖 Footnotes 📖
 # [1] You can do comments in json by `{"//": "A way to use comments in json"}` but it's icky.
 # [2] "Does ansible have a json schema? Yaml aint so bad with a schema."?
+# [3] Also see `python2 -c 'print 011' && echo $((011 + 1))`
 	
 # and finally, here's some ⭐️⭐️⭐️⭐️⭐️ feedback from reddit.com:
 - I need to burn the very motherboard this site runs from. It’s that awful.
