@@ -61,7 +61,7 @@ NO: Norway # 💣!
 # YAML knows that, when you have something that looks like the time of day,
 # what you _really_ wanted is the time of seconds since midnight
 timeOfDay:
-  whatYouWrote: 04:30 # And when you parse this file and serialize it again, you get ...
+  whatYouWrote: 04:30 # And when you parse this file and serialize it again, you may get before YAML 1.2 ...
   whatYouSurelyMeant: 16200 # Have fun debugging this one!
   whatYouShouldHaveWritten: !!str 04:30
 
