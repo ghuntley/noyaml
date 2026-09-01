@@ -19,14 +19,54 @@
     <meta name="twitter:description" content="No body wants to write YAML. A lovingly curated list of YAML pain." />
     <meta name="twitter:image" content="/og.png" />
     <style>
+        :root {
+            color-scheme: light dark;
+        }
+        body {
+            background: #fff;
+            color: #1e1e1e;
+        }
         .nojs {
             font-family: monospace;
             white-space: pre;
             padding: 0 2em;
         }
+        @media (prefers-color-scheme: dark) {
+            body:not([data-theme="light"]) {
+                background: #1e1e1e;
+                color: #ddd;
+            }
+        }
+        body[data-theme="dark"] {
+            background: #1e1e1e;
+            color: #ddd;
+        }
+        #theme-toggle {
+            position: fixed;
+            top: 0.6em;
+            left: 0.6em;
+            z-index: 10000;
+            width: 2em;
+            height: 2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            border-radius: 50%;
+            background: rgba(128, 128, 128, 0.15);
+            font-size: 1.1em;
+            line-height: 1;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        #theme-toggle:hover {
+            background: rgba(128, 128, 128, 0.3);
+        }
     </style>
 </head>
 <body style="height: calc(100% - 75px); margin: 35px 0 0 0;">
+
+<button id="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">🌓</button>
 
 <div id="container" style="height: 100%" class="nojs">
 # Made with 💖 by https://ghuntley.com after one too many CustomResourceDefinitions
@@ -260,6 +300,20 @@ jobs:
             container.innerHTML = '';
             container.className = '';
 
+
+            const THEME_KEY = 'noyaml-theme';
+            const darkMode = window.matchMedia('(prefers-color-scheme: dark)');
+            const toggle = document.getElementById('theme-toggle');
+
+            const stored = localStorage.getItem(THEME_KEY);
+            if (stored) document.body.dataset.theme = stored;
+
+            const isDark = () => (document.body.dataset.theme || (darkMode.matches ? 'dark' : 'light')) === 'dark';
+
+            const applyTheme = () => {
+                monaco.editor.setTheme(isDark() ? 'vs-dark' : 'vs');
+            };
+
             const ed = monaco.editor.create(container, {
                 value: content,
                 language: 'yaml',
@@ -270,7 +324,17 @@ jobs:
                 minimap: {
                     enabled: false
                 },
-                automaticLayout: true
+                automaticLayout: true,
+                theme: isDark() ? 'vs-dark' : 'vs',
+            });
+
+            darkMode.addEventListener('change', applyTheme);
+
+            toggle.addEventListener('click', () => {
+                const next = isDark() ? 'light' : 'dark';
+                localStorage.setItem(THEME_KEY, next);
+                document.body.dataset.theme = next;
+                applyTheme();
             });
 
             let smartAssed = false;
